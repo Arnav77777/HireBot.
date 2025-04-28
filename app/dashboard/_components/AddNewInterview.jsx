@@ -70,7 +70,7 @@ function AddNewInterview() {
 
   return (
     <div>
-      <div className='p-10 border rounded-lg bg-fuchsia-200 hover:scale-105 hover:shadow-md cursor-pointer transition-all'
+      <div className='p-10 border rounded-lg bg-blue-500 hover:scale-105 hover:shadow-md cursor-pointer transition-all'
       onClick={()=>setOpenDailog(true)}>
         <h2 className='text-lg text-center'>+ Add New</h2>
       </div>

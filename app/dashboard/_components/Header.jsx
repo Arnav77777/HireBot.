@@ -13,7 +13,7 @@ function Header() {
   }, [path]);
 
   return (
-    <div className="flex p-4 items-center justify-between bg-fuchsia-200 shadow-sm">
+    <div className="flex p-4 items-center justify-between bg-gray-500 shadow-sm">
       <Image src={"/logo.svg"} width={160} height={100} alt="logo" />
       <ul className="hidden md:flex gap-6">
         <li
