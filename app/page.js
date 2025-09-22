@@ -1,8 +1,12 @@
 // filepath: d:\Languages\Hirebot\app\page.js
+"use client"
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+
 export default function Home() {
-  return (
-    <div>
-      <h2>Change route and add /dashboard in url</h2>
-    </div>
-  );
+  const router = useRouter();
+  useEffect(() => {
+    router.replace("/dashboard");
+  }, [router]);
+  return null;
 }

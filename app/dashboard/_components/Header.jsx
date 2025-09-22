@@ -14,8 +14,7 @@ function Header() {
 
   return (
     <div className="flex p-4 items-center justify-between bg-gray-500 shadow-sm">
-      <Image src={"/logo.svg"} width={160} height={100} alt="logo" />
-      <ul className="hidden md:flex gap-6">
+<Image src="/logo.svg" width={160} height={100} alt="logo" priority />      <ul className="hidden md:flex gap-6">
         <li
           className={`hover:text-orange-500 hover:font-bold transition-all cursor-pointer
             ${path === "/dashboard" && "text-orange-500 font-bold"}
@@ -35,7 +34,7 @@ function Header() {
             ${path === "/dashboard/upgrade" && "text-orange-500 font-bold"}
           `}
         >
-          <Link href="/dashboard/upgrade">Upgrade</Link>
+          {/* <Link href="/dashboard/upgrade">Upgrade</Link> */}
         </li>
         <li
           className={`hover:text-orange-500 hover:font-bold transition-all cursor-pointer

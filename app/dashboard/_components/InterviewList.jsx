@@ -13,7 +13,11 @@ function InterviewList() {
 
     useEffect(()=>{
         user&&GetInterviewList();
-    },[user])
+    },[user]);
+
+    useEffect(() => {
+        console.log("Interview List:", interviewList);
+    }, [interviewList]);
 
     const GetInterviewList=async()=>{
         const result = await db
@@ -26,18 +30,26 @@ function InterviewList() {
         setInterviewList(result);
     }
 
-  return (
+    // Delete interview by mockId
+    const handleDelete = async (mockId) => {
+        await db.delete(MockInterview).where(eq(MockInterview.mockId, mockId));
+        setInterviewList(prev => prev.filter(item => item.mockId !== mockId));
+    }
+
+    return (
     <div>
         <h2 className='font-medium text-xl'>Previous Mock Interviews</h2>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-3'>
-            {interviewList&&interviewList.map((interview,index)=>(
+            {interviewList && interviewList.map((interview, index) => (
                 <InterviewItemCard 
-                interview={interview}
-                key={index}/>
+                    interview={interview}
+                    key={interview.mockId || index}
+                    onDelete={() => handleDelete(interview.mockId)}
+                />
             ))}
         </div>
     </div>
-  )
+    )
 }
 
 export default InterviewList
